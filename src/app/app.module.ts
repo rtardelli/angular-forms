@@ -24,13 +24,15 @@ import { AppComponent } from './app.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { HomeComponent } from './home/home.component';
 import { FormHolderComponent } from './form-holder/form-holder.component';
+import { FormUsersComponent } from './form-users/form-users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FormHolderComponent,
-    SimpleFormComponent
+    SimpleFormComponent,
+    FormUsersComponent
   ],
   imports: [
     BrowserModule,
