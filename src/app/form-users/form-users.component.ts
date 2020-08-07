@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 
 import { UserService } from '../user-service.service';
 import { User } from '../model/user';
@@ -10,6 +10,7 @@ import { User } from '../model/user';
   styleUrls: ['./form-users.component.scss']
 })
 export class FormUsersComponent implements OnInit {
+  @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective;
 
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
@@ -64,10 +65,6 @@ export class FormUsersComponent implements OnInit {
     this._userService.addUser(user);
     
     // clean form
-    this.formGroup.reset();
-    this.formGroup.markAsUntouched();
-
-    // tag confirmation
-    // list result
+    this.formGroupDirective.resetForm();
   }
 }
