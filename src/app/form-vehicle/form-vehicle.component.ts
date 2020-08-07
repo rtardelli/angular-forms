@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroupDirective, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { Vehicle, VehicleType } from '../model/vehicle';
+import { VehicleService } from '../vehicle.service';
 
 @Component({
   selector: 'form-vehicles',
@@ -18,10 +19,12 @@ export class FormVehicleComponent implements OnInit {
   ePropertyType = VehicleType;
   vehicles: Vehicle[] = [];
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private _vehicleService: VehicleService) { }
 
   ngOnInit(): void {
     this.createForm();
+
+    this._vehicleService.getVehicles().subscribe(vehicles => this.vehicles = vehicles);
   }
 
   private createForm() {
@@ -45,7 +48,7 @@ export class FormVehicleComponent implements OnInit {
     vehicle.type = post.type;
     vehicle.identification = post.identification;
     console.log(vehicle);
-    //this._userService.addUser(user);
+    this._vehicleService.addVehicle(vehicle);
     
     // clean form
     this.formGroupDirective.resetForm();
