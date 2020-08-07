@@ -25,6 +25,7 @@ import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { HomeComponent } from './home/home.component';
 import { FormHolderComponent } from './form-holder/form-holder.component';
 import { FormUsersComponent } from './form-users/form-users.component';
+import { FormVehicleComponent } from './form-vehicle/form-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormUsersComponent } from './form-users/form-users.component';
     HomeComponent,
     FormHolderComponent,
     SimpleFormComponent,
-    FormUsersComponent
+    FormUsersComponent,
+    FormVehicleComponent
   ],
   imports: [
     BrowserModule,
