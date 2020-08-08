@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 
-import { UserService } from '../user-service.service';
+import { UserService } from '../user.service';
 import { User } from '../model/user';
 
 @Component({
