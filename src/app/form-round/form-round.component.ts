@@ -37,6 +37,9 @@ export class FormRoundComponent implements OnInit {
     
     this._vehicleService.getVehicles()
       .subscribe(vehicles => this.vehicles = vehicles);
+
+    this._roundService.getRounds()
+      .subscribe(rounds => this.rounds = rounds);
   }
 
   private createForm() {
@@ -69,6 +72,8 @@ export class FormRoundComponent implements OnInit {
     let round: Round = new Round();
     round.first = post.first;
     round.second = post.second;
+    round.vehicle = post.vehicle;
+    round.startDate = post.startDate;
     
     this._roundService.addRound(round);
     

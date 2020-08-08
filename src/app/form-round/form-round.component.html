@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-    <span class="fill-remaining-space">Formulário de usuários</span>
+    <span class="fill-remaining-space">Formulário de rondas</span>
 </mat-toolbar>
 
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" #formDirective="ngForm">
     <mat-form-field class="form-element">
         <mat-label>Primeiro</mat-label>
         <mat-select formControlName="first">
-            <mat-option *ngFor="let user of users" [value]="user.value">
+            <mat-option *ngFor="let user of users" [value]="user">
                 {{ user.name }}
             </mat-option>
         </mat-select>
@@ -18,7 +18,7 @@
     <mat-form-field class="form-element">
         <mat-label>Segundo</mat-label>
         <mat-select formControlName="second">
-            <mat-option *ngFor="let user of users" [value]="user.value">
+            <mat-option *ngFor="let user of users" [value]="user">
                 {{ user.name }}
             </mat-option>
         </mat-select>
@@ -30,8 +30,8 @@
     <mat-form-field class="form-element">
         <mat-label>Veículo</mat-label>
         <mat-select formControlName="vehicle">
-            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.value">
-                {{ vehicle.name }}
+            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle">
+                {{ vehicle.identification }} [{{vehicle.type}}]
             </mat-option>
         </mat-select>
         <mat-error *ngIf="!vehicle.valid && vehicle.touched">
@@ -52,8 +52,8 @@
 </form>
 
 <div class="container">
-<div *ngIf="vehicles?.length > 0">
-    {{ vehicles | json }}
+<div *ngIf="rounds?.length > 0">
+    {{ rounds | json }}
 </div>
 </div>
   
